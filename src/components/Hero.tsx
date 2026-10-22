@@ -1,18 +1,16 @@
-import { Suspense } from 'react'
 import { motion } from 'framer-motion'
-import CoffeeScene from './CoffeeScene'
 
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Clean warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a0e08] via-[#2d1810] to-[#1a0e08]" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0805] via-[#1a0e08] to-[#0f0805]" />
       
-      {/* Subtle warm glow */}
-      <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] rounded-full bg-amber-900/10 blur-[120px] -translate-y-1/2" />
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-orange-900/8 blur-[100px]" />
+      {/* Warm glow effects */}
+      <div className="absolute top-1/2 right-1/3 w-[800px] h-[800px] rounded-full bg-amber-900/15 blur-[150px] -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-orange-900/10 blur-[120px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 items-center pt-24 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center pt-24 pb-16">
         {/* Left content */}
         <div className="space-y-8">
           <motion.div
@@ -93,25 +91,106 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right 3D Scene */}
+        {/* Right - Animated Image Gallery */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
-          className="h-[450px] sm:h-[500px] lg:h-[600px] relative"
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="relative h-[500px] lg:h-[600px]"
         >
-          {/* Soft glow behind scene */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-80 h-80 rounded-full bg-gradient-radial from-amber-800/20 via-amber-900/5 to-transparent blur-3xl" />
-          </div>
+          {/* Main featured image */}
+          <motion.div
+            animate={{ 
+              y: [0, -15, 0],
+              rotate: [0, 1, 0]
+            }}
+            transition={{ 
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/50 border-2 border-amber-700/20"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/502a7817-dcc1-4049-b4a5-0128a14c8355/_result.png" 
+              alt="Premium coffee" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          </motion.div>
 
-          <Suspense fallback={
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="w-12 h-12 border-2 border-amber-700/30 border-t-amber-500 rounded-full animate-spin" />
-            </div>
-          }>
-            <CoffeeScene />
-          </Suspense>
+          {/* Floating image 1 - Coffee beans */}
+          <motion.div
+            animate={{ 
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              rotate: [0, 3, 0]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+            className="absolute top-10 right-0 w-[180px] h-[180px] rounded-2xl overflow-hidden shadow-xl shadow-amber-950/40 border border-amber-700/20"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/b305b7bb-8ca8-4dd3-b66d-6b98bf8f22a4/_result.png" 
+              alt="Coffee beans" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent" />
+          </motion.div>
+
+          {/* Floating image 2 - Coffee shop */}
+          <motion.div
+            animate={{ 
+              y: [0, 15, 0],
+              x: [0, -8, 0],
+              rotate: [0, -2, 0]
+            }}
+            transition={{ 
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute bottom-10 left-0 w-[200px] h-[200px] rounded-2xl overflow-hidden shadow-xl shadow-amber-950/40 border border-amber-700/20"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/59b8e439-b231-427a-91f2-c2aa897274a6/_result.png" 
+              alt="Coffee shop" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
+          </motion.div>
+
+          {/* Decorative elements */}
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-20 left-10 w-20 h-20 rounded-full bg-amber-600/20 blur-2xl"
+          />
+          <motion.div
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5
+            }}
+            className="absolute bottom-20 right-10 w-24 h-24 rounded-full bg-orange-600/20 blur-2xl"
+          />
         </motion.div>
       </div>
 

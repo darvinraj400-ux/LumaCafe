@@ -130,6 +130,69 @@ export default function MenuSection() {
           </motion.p>
         </div>
 
+        {/* Featured Images Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid md:grid-cols-3 gap-6 mb-16"
+        >
+          {/* Latte Art */}
+          <motion.div
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/50 border border-amber-700/20 group"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/4aade730-7a53-45e7-9f4e-c941c9d9575f/_result.png" 
+              alt="Latte Art" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="font-display text-2xl font-bold text-cream mb-1">Velvet Latte</h3>
+              <p className="text-cream/70 text-sm">Signature microfoam art</p>
+            </div>
+          </motion.div>
+
+          {/* Cold Brew */}
+          <motion.div
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/50 border border-amber-700/20 group"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/53d82e45-2d43-422b-b1bb-6aee85ceba6c/_result.png" 
+              alt="Cold Brew" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="font-display text-2xl font-bold text-cream mb-1">Cold Brew</h3>
+              <p className="text-cream/70 text-sm">24-hour steeped perfection</p>
+            </div>
+          </motion.div>
+
+          {/* Barista Action */}
+          <motion.div
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/50 border border-amber-700/20 group"
+          >
+            <img 
+              src="https://image.qwenlm.ai/generated-images/ff5aef20-8153-444b-b8e0-1bf8f31656bb/_result.png" 
+              alt="Barista at work" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="font-display text-2xl font-bold text-cream mb-1">Crafted Daily</h3>
+              <p className="text-cream/70 text-sm">By expert baristas</p>
+            </div>
+          </motion.div>
+        </motion.div>
+
         {/* Menu Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {menuItems.map((item, index) => (

@@ -36,50 +36,113 @@ export default function About() {
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Visual */}
+          {/* Left - Animated Images */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative h-[500px]"
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-950/50 to-[#0f0805] overflow-hidden border border-amber-900/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center space-y-4 p-8">
-                    <div className="text-7xl opacity-80">☕</div>
-                    <div className="font-display text-3xl text-gradient font-bold">Since 2009</div>
-                    <div className="text-cream/40 text-sm">Crafting perfection, one cup at a time</div>
-                  </div>
+            {/* Main image */}
+            <motion.div
+              animate={{ 
+                y: [0, -10, 0],
+                rotate: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-0 left-0 w-[320px] h-[320px] rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/50 border-2 border-amber-700/20"
+            >
+              <img 
+                src="https://image.qwenlm.ai/generated-images/59b8e439-b231-427a-91f2-c2aa897274a6/_result.png" 
+                alt="Coffee shop interior" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent" />
+            </motion.div>
+
+            {/* Floating image 1 */}
+            <motion.div
+              animate={{ 
+                y: [0, 15, 0],
+                x: [0, -8, 0],
+                rotate: [0, -2, 0]
+              }}
+              transition={{ 
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+              className="absolute bottom-0 right-0 w-[240px] h-[240px] rounded-2xl overflow-hidden shadow-xl shadow-amber-950/40 border border-amber-700/20"
+            >
+              <img 
+                src="https://image.qwenlm.ai/generated-images/b305b7bb-8ca8-4dd3-b66d-6b98bf8f22a4/_result.png" 
+                alt="Coffee beans" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tl from-black/30 to-transparent" />
+            </motion.div>
+
+            {/* Floating badge */}
+            <motion.div
+              animate={{ 
+                y: [0, -8, 0],
+                scale: [1, 1.05, 1]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+              className="absolute top-1/2 right-10 glass rounded-2xl p-4 shadow-2xl"
+            >
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gradient">15+</div>
+                <div className="text-[10px] text-cream/50 uppercase tracking-wider">Years</div>
+              </div>
+            </motion.div>
+
+            {/* Another floating badge */}
+            <motion.div
+              animate={{ 
+                y: [0, 6, 0],
+                scale: [1, 1.03, 1]
+              }}
+              transition={{ 
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.5
+              }}
+              className="absolute bottom-20 left-10 glass rounded-2xl p-4 shadow-2xl"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-lg">⭐</span>
+                <div>
+                  <div className="text-sm font-semibold text-cream/90">4.9/5</div>
+                  <div className="text-[10px] text-cream/40">2000+ Reviews</div>
                 </div>
               </div>
+            </motion.div>
 
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-2xl"
-              >
-                <div className="text-center">
-                  <div className="text-xl font-bold text-gradient">15+</div>
-                  <div className="text-[10px] text-cream/50 uppercase tracking-wider">Years</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 glass rounded-2xl p-4 shadow-2xl"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">⭐</span>
-                  <div>
-                    <div className="text-sm font-semibold text-cream/90">4.9/5</div>
-                    <div className="text-[10px] text-cream/40">2000+ Reviews</div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+            {/* Decorative glow */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.4, 0.2]
+              }}
+              transition={{ 
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-amber-600/20 blur-3xl"
+            />
           </motion.div>
 
           {/* Right - Content */}
