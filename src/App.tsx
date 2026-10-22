@@ -8,10 +8,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-espresso text-cream overflow-x-hidden">
-      {/* Noise texture overlay */}
-      <div className="noise-overlay" />
-      
+    <div className="relative min-h-screen text-cream overflow-x-hidden" style={{ background: '#0f0805' }}>
       {/* Navigation */}
       <Navbar />
       

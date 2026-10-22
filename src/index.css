@@ -24,27 +24,29 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-espresso);
+  background-color: #0f0805;
   color: var(--color-cream);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-espresso);
+  background: #0f0805;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-coffee-700);
-  border-radius: 4px;
+  background: #3d2515;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-coffee-500);
+  background: #5a3820;
 }
 
 /* Animations */
@@ -76,8 +78,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(166, 124, 66, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(166, 124, 66, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(166, 124, 66, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(166, 124, 66, 0.4); }
 }
 
 .animate-float {
@@ -96,51 +98,47 @@ body {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Glass effect */
+/* Glass effect - refined */
 .glass {
-  background: rgba(45, 24, 16, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(166, 124, 66, 0.2);
+  background: rgba(30, 18, 10, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(166, 124, 66, 0.12);
 }
 
 .glass-light {
-  background: rgba(250, 246, 240, 0.05);
+  background: rgba(250, 246, 240, 0.03);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(250, 246, 240, 0.1);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(250, 246, 240, 0.06);
 }
 
-/* Gradient text */
+/* Gradient text - warm gold */
 .text-gradient {
-  background: linear-gradient(135deg, #d4b47a, #a67c42, #c49a5c);
+  background: linear-gradient(135deg, #e8c896, #c49a5c, #a67c42);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Menu card hover */
+/* Menu card hover - subtle and refined */
 .menu-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(166, 124, 66, 0.2);
-}
-
-/* Noise texture overlay */
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1000;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(166, 124, 66, 0.25);
 }
 
 /* Radial gradient utility */
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Selection color */
+::selection {
+  background: rgba(166, 124, 66, 0.3);
+  color: #faf6f0;
 }
