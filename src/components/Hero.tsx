@@ -93,7 +93,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="h-[500px] lg:h-[600px] relative"
+          className="h-[450px] sm:h-[500px] lg:h-[600px] relative"
         >
           <Suspense fallback={
             <div className="w-full h-full flex items-center justify-center">
@@ -104,8 +104,8 @@ export default function Hero() {
           </Suspense>
           
           {/* Glow effect behind 3D scene */}
-          <div className="absolute inset-0 -z-10 flex items-center justify-center">
-            <div className="w-80 h-80 rounded-full bg-coffee-500/20 blur-3xl" />
+          <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
+            <div className="w-72 h-72 rounded-full bg-gradient-radial from-coffee-500/25 via-coffee-700/10 to-transparent blur-2xl" />
           </div>
         </motion.div>
       </div>
